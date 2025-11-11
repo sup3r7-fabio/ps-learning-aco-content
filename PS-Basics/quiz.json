@@ -1,0 +1,216 @@
+{
+  "moduleId": "PS-Basics",
+  "moduleName": "PowerShell Fundamentals",
+  "description": "Assessment quiz for PowerShell basics knowledge",
+  "totalQuestions": 15,
+  "passingScore": 70,
+  "timeLimit": 30,
+  "questions": [
+    {
+      "id": 1,
+      "difficulty": "easy",
+      "question": "What is the primary distinguishing feature of PowerShell compared to Bash?",
+      "options": [
+        "PowerShell is faster than Bash",
+        "PowerShell works with objects, while Bash works with text",
+        "PowerShell only works on Windows",
+        "PowerShell doesn't require learning syntax"
+      ],
+      "correctAnswer": 1,
+      "explanation": "PowerShell is object-oriented, meaning it passes objects (with properties and methods) through the pipeline, while Bash and traditional shells work primarily with text strings."
+    },
+    {
+      "id": 2,
+      "difficulty": "easy",
+      "question": "Which of the following is a valid PowerShell cmdlet naming convention?",
+      "options": [
+        "get_process",
+        "Get-Process",
+        "getProcess",
+        "GET_PROCESS"
+      ],
+      "correctAnswer": 1,
+      "explanation": "PowerShell cmdlets follow the Verb-Noun naming convention with PascalCase, like 'Get-Process'. This makes commands predictable and easy to discover."
+    },
+    {
+      "id": 3,
+      "difficulty": "easy",
+      "question": "What cmdlet would you use to get a list of all running processes?",
+      "options": [
+        "Show-Process",
+        "Get-Process",
+        "List-Process",
+        "Get-Service"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Get-Process retrieves information about active processes. Get-Service is used for services, not processes."
+    },
+    {
+      "id": 4,
+      "difficulty": "easy",
+      "question": "What does this command do? Get-ChildItem -Path 'C:\\Users' -Filter '*.txt'",
+      "options": [
+        "Lists all items in C:\\Users and deletes .txt files",
+        "Lists all .txt files in the C:\\Users directory",
+        "Lists all files and creates new .txt files",
+        "Changes to C:\\Users directory"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Get-ChildItem lists directory contents, -Path specifies the directory, and -Filter '*.txt' limits results to .txt files."
+    },
+    {
+      "id": 5,
+      "difficulty": "medium",
+      "question": "How would you navigate to your home directory in PowerShell?",
+      "options": [
+        "cd home",
+        "Set-Location -Path '/'",
+        "Set-Location -Path $HOME",
+        "Get-HomeDirectory"
+      ],
+      "correctAnswer": 2,
+      "explanation": "$HOME is a built-in variable that contains your home directory path. Set-Location (alias: cd) changes the current location."
+    },
+    {
+      "id": 6,
+      "difficulty": "medium",
+      "question": "What is the purpose of the pipe operator (|) in PowerShell?",
+      "options": [
+        "It creates comments",
+        "It passes the output of one cmdlet as input to another",
+        "It ends a command",
+        "It creates a new variable"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The pipe operator sends the output of the left command as input to the right command, enabling powerful command chaining and object manipulation."
+    },
+    {
+      "id": 7,
+      "difficulty": "medium",
+      "question": "Which command would display the current working directory?",
+      "options": [
+        "Show-Location",
+        "Get-Location",
+        "pwd (on Windows only)",
+        "Current-Directory"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Get-Location (alias: pwd or gl) displays the current working directory. It works cross-platform in PowerShell 7+."
+    },
+    {
+      "id": 8,
+      "difficulty": "medium",
+      "question": "What does the following command do? Get-Process | Select-Object Name, CPU",
+      "options": [
+        "Deletes processes and their CPU data",
+        "Gets all processes and displays only their Name and CPU properties",
+        "Gets processes and creates a CPU folder",
+        "Selects the Name process and filters by CPU"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Get-Process retrieves all processes, and Select-Object Name, CPU filters the output to show only those two properties."
+    },
+    {
+      "id": 9,
+      "difficulty": "medium",
+      "question": "How would you create a new directory called 'Projects'?",
+      "options": [
+        "Create-Folder -Name 'Projects'",
+        "New-Item -Path '.\\Projects' -ItemType Directory",
+        "mkdir Projects (only on Linux)",
+        "Add-Directory 'Projects'"
+      ],
+      "correctAnswer": 1,
+      "explanation": "New-Item with -ItemType Directory creates a new folder. This works cross-platform in PowerShell 7+."
+    },
+    {
+      "id": 10,
+      "difficulty": "medium",
+      "question": "What is the function of Get-Help in PowerShell?",
+      "options": [
+        "It removes help files from your computer",
+        "It displays documentation and examples for cmdlets",
+        "It calls Microsoft support",
+        "It generates new PowerShell commands"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Get-Help provides comprehensive documentation for cmdlets, including syntax, parameters, and examples. Use Get-Help Get-Process -Examples to see practical use cases."
+    },
+    {
+      "id": 11,
+      "difficulty": "hard",
+      "question": "What would this command output? Get-Process | Where-Object {$_.WorkingSet -gt 100MB} | Select-Object Name, @{Name='MemoryMB';Expression={$_.WorkingSet/1MB}}",
+      "options": [
+        "Lists all processes with their names and CPU usage",
+        "Shows processes using more than 100MB of memory with a calculated MemoryMB column",
+        "Deletes processes using more than 100MB",
+        "Lists processes and their memory in bytes"
+      ],
+      "correctAnswer": 1,
+      "explanation": "This filters processes using >100MB, then creates a custom property 'MemoryMB' by dividing WorkingSet (in bytes) by 1MB to show memory in megabytes."
+    },
+    {
+      "id": 12,
+      "difficulty": "hard",
+      "question": "How would you read the contents of a file called 'data.txt'?",
+      "options": [
+        "Open-File 'data.txt'",
+        "Get-Content -Path '.\\data.txt'",
+        "Read-File 'data.txt'",
+        "Import-Data 'data.txt'"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Get-Content (alias: cat, type) reads and displays file contents. The -Path parameter specifies the file location."
+    },
+    {
+      "id": 13,
+      "difficulty": "hard",
+      "question": "What's the difference between these two commands? 'Get-Service' vs 'Get-Service | Sort-Object Status'",
+      "options": [
+        "They do exactly the same thing",
+        "The first lists services in default order; the second sorts them by Status",
+        "The second is incorrect syntax",
+        "The first is faster than the second"
+      ],
+      "correctAnswer": 1,
+      "explanation": "The pipe operator passes services to Sort-Object, which organizes them by Status. Without piping, Get-Service uses its default ordering."
+    },
+    {
+      "id": 14,
+      "difficulty": "hard",
+      "question": "What does this command accomplish? Copy-Item -Path '.\\source.txt' -Destination '.\\backup\\source.txt'",
+      "options": [
+        "Moves source.txt to the backup folder",
+        "Deletes source.txt",
+        "Copies source.txt to the backup folder",
+        "Renames source.txt to backup"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Copy-Item duplicates the file from the source location to the destination. The original remains in place. Use Move-Item to move instead of copy."
+    },
+    {
+      "id": 15,
+      "difficulty": "hard",
+      "question": "In PowerShell, what are the three main benefits of working with objects?",
+      "options": [
+        "They're faster, simpler, and require less code",
+        "They have properties you can filter/sort, methods you can execute, and they maintain type information",
+        "Objects only work on Windows computers",
+        "They eliminate the need to learn PowerShell syntax"
+      ],
+      "correctAnswer": 1,
+      "explanation": "Objects in PowerShell have properties (data about the object), methods (actions the object can perform), and type information, enabling powerful manipulation and automation."
+    }
+  ],
+  "scoringRules": {
+    "easyQuestion": 1,
+    "mediumQuestion": 2,
+    "hardQuestion": 3
+  },
+  "feedbackMessages": {
+    "excellent": "Outstanding! You've mastered PowerShell fundamentals. Ready for PS-Objects? 🚀",
+    "good": "Great job! You understand most concepts. Review the areas you struggled with and try again!",
+    "passing": "Good start! You've grasped the basics. Keep practicing and refer to the lesson material for deeper understanding.",
+    "needsImprovement": "Don't worry! This is normal. Go through the lesson.md again, complete the exercises, and retake the quiz."
+  }
+}
